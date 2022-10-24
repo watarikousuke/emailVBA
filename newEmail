@@ -1,6 +1,4 @@
-Option Explicit
-
-Sub newEmail()
+Sub NewEmail()
   'マクロを実行するためにVBAの参照設定→ Microsoft Outlook ”バージョン” Object Library にチェックを入れる
   Dim OL
   Dim NewMail
@@ -10,12 +8,12 @@ Sub newEmail()
   Set NewMail = OL.CreateItem(olMailItem)
     With NewMail
       .Display '作成されたメールを表示するコード
-      .To = "watarikousuke@gmail.com"
-      .CC = "watarikousuke@gmail.com"
-      .Subject = "本日のレポート"
+      .To = "example@gmail.com"
+      .CC = "example@gmail.com"
+      .Subject = "件名"
       .BodyFormat = olFormatHTML
-      .Body = "おはようございます。" & vbLf & "本日のレポートです。"
-      .Attachments.Add ThisWorkbook.Path & "\練習用.xlsm" 'このマクロがあるパスのファイルが添付される
+      .Body = "本文" & vbLf & "本文改行後"
+      .Attachments.Add ThisWorkbook.Path & "\ファイル名.xlsm" 'このマクロがあるパスのファイルが添付される
       .Save  '保存せずに直で送信したい場合は、Save→Sendと書き換える(危険なので取扱注意)
     End With
 End Sub
