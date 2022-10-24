@@ -7,7 +7,7 @@ Sub NewEmail()
   'Set OL = CreateObject("Outlook.Application") 'VBAの参照設定を入れない場合は一行上のコードに代わってこちらを使う
   Set NewMail = OL.CreateItem(olMailItem)
     With NewMail
-      .Display '作成されたメールを表示するコード
+      .Display '作成されたメールを表示するコード、大量に作成する場合は省略すると下書き保存され効率化できる
       .To = "example@gmail.com"
       .CC = "example@gmail.com"
       .Subject = "件名"
