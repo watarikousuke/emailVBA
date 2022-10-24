@@ -1,6 +1,6 @@
 Option Explicit
 
-Sub newMailExcel()
+Sub NewMailExcel()
   'エクセル上に宛先・タイトル・件名を入れて作る場合。この場合は一通のみ
     Dim OL, NewMail
   
