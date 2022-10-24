@@ -1,0 +1,30 @@
+Sub NewMailsExcelTemplates()
+  
+    Dim OL, NewMail, r
+  
+    Set OL = New Outlook.Application
+    
+    For r = 10 To 13
+    
+        Set NewMail = OL.CreateItem(olMailItem)
+    
+        NewMail.Display
+      
+        NewMail.To = Cells(r, 2)
+      
+        NewMail.Subject = Cells(4, 2)
+           
+        If Cells(r, 4) = 1 Then 'テンプレートの数が増える場合はここのif文を改変して追加等などをする
+        
+            NewMail.Body = Replace(Cells(7, 2), Cells(9, 3), Cells(r, 3))
+        
+        Else
+
+            NewMail.Body = Replace(Cells(7, 4), Cells(9, 3), Cells(r, 3))
+
+        End If
+
+    Next
+
+End Sub
+
