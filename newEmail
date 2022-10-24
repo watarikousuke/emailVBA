@@ -13,7 +13,7 @@ Sub NewEmail()
       .Subject = "件名"
       .BodyFormat = olFormatHTML
       .Body = "本文" & vbLf & "本文改行後"
-      .Attachments.Add ThisWorkbook.Path & "\ファイル名.xlsm" 'このマクロがあるパスのファイルが添付される
+      .Attachments.Add ThisWorkbook.Path & "\ファイル名.xlsm" 'このマクロがあるパスのファイルが添付される。添付ファイルがある場合はこの一行を入れる。
       .Save  '保存せずに直で送信したい場合は、Save→Sendと書き換える(危険なので取扱注意)
     End With
 End Sub
