@@ -1,0 +1,29 @@
+Sub RecieveAllMail()
+
+    Dim OL, MyNamespace, MyInbox, i, r
+
+    Set OL = New Outlook.Application
+    
+    Set MyNamespace = OL.GetNamespace("MAPI")
+    
+    Set MyInbox = MyNamespace.GetDefaultFolder(olFolderInbox)
+    
+    r = 4
+    
+    For i = 1 To MyInbox.Items.Count
+    
+        Cells(r, 2) = MyInbox.Items(i).ReceivedTime
+        
+        Cells(r, 3) = MyInbox.Items(i).SenderName
+        
+        Cells(r, 4) = MyInbox.Items(i).SenderEmailAddress
+        
+        Cells(r, 5) = MyInbox.Items(i).Subject
+            
+        Cells(r, 6) = MyInbox.Items(i).Body
+
+        r = r + 1
+
+    Next
+
+End Sub
