@@ -1,0 +1,21 @@
+Sub NewMailsExcel()
+  
+    Dim OL, NewMail, r
+  
+    Set OL = New Outlook.Application　'本文中(4, 2)に件名、(7, 2)に本文（宛名を除く）、(10, 2)以下に宛先、(10, 3)以下に本文中の宛名を入力する
+    
+    For r = 10 To Cells(10, 2).End(xlDown).Row
+    
+        Set NewMail = OL.CreateItem(olMailItem)
+    
+        NewMail.Display
+      
+        NewMail.To = Cells(r, 2) 'セルの10行目以降下に宛先をずっと入れる
+      
+        NewMail.Subject = Cells(4, 2)　'テンプレートとして決まった場所に件名を書く
+           
+        NewMail.Body = Replace(Cells(7, 2), Cells(9, 3), Cells(r, 3))　'本文中の宛名のみ置き換え。他はそのまま使う
+
+    Next
+
+End Sub
