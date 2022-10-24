@@ -1,0 +1,18 @@
+Option Explicit
+
+Sub newMailExcel()
+  'エクセル上に宛先・タイトル・件名を入れて作る場合。この場合は一通のみ
+    Dim OL, NewMail
+  
+    Set OL = New Outlook.Application
+    Set NewMail = OL.CreateItem(olMailItem)
+    
+        NewMail.Display
+      
+        NewMail.To = Cells(4, 2) 'セルB4を参照
+      
+        NewMail.Subject = Cells(4, 3) 'セルC4を参照
+           
+        NewMail.Body = Cells(4, 4) 'セルD4を参照
+
+End Sub
