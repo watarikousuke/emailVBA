@@ -8,7 +8,7 @@ Sub RecieveMail()
 
     Set MyInbox = MyNamespace.GetDefaultFolder(olFolderInbox) 'Namespace内の受信トレイを取得し、変数に変換する
 
-        Cells(4, 2) = MyInbox.Items(1).ReceivedTime
+        Cells(4, 2) = MyInbox.Items(1).ReceivedTime　'現在古い順に取得されてしまっているので、新しい順に可能であれば取得したい。
         
         Cells(4, 3) = MyInbox.Items(1).SenderName
         
