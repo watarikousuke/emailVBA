@@ -1,0 +1,21 @@
+Sub RecieveMail()
+
+    Dim OL, MyNamespace, MyInbox
+
+    Set OL = New Outlook.Application 'Outlookを変数名に変える
+    
+    Set MyNamespace = OL.GetNamespace("MAPI") 'Outlook内部のNamespaceを取得し変数に変換する
+
+    Set MyInbox = MyNamespace.GetDefaultFolder(olFolderInbox) 'Namespace内の受信トレイを取得し、変数に変換する
+
+        Cells(4, 2) = MyInbox.Items(1).ReceivedTime
+        
+        Cells(4, 3) = MyInbox.Items(1).SenderName
+        
+        Cells(4, 4) = MyInbox.Items(1).SenderEmailAddress
+        
+        Cells(4, 5) = MyInbox.Items(1).Subject
+            
+        Cells(4, 6) = MyInbox.Items(1).Body
+
+End Sub
