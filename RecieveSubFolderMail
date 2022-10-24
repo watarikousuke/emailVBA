@@ -1,0 +1,31 @@
+Sub RecieveSubFolderMail()
+  
+  Dim OL, MyNamespace, MyInbox, i, r, SubFolder
+  
+  Set OL = New Outlook.Application
+  
+  Set MyNamespace = OL.GetNamespace("MAPI")
+  
+  Set MyInbox = MyNamespace.GetDefaultFolder(olFolderInbox)
+  
+  Set SubFolder = MyInbox.Folders("サブフォルダー名") 'サブフォルダー名を入力する。間違えるとマクロが動かない。
+  
+  r = 4
+  
+  For i = 1 To SubFolder.Items.Count
+    
+    Cells(r, 2) = SubFolder.Items(i).ReceivedTime
+    
+    Cells(r, 3) = SubFolder.Items(i).SenderName
+    
+    Cells(r, 4) = SubFolder.Items(i).SenderEmailAddress
+    
+    Cells(r, 5) = SubFolder.Items(i).Subject
+    
+    Cells(r, 6) = SubFolder.Items(i).Body
+    
+    r = r + 1
+  
+  Next
+
+End Sub
