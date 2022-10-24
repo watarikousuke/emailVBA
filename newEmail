@@ -1,0 +1,15 @@
+Sub newEmail()
+  Dim OL
+  Dim NewMail
+  
+  Set OL = New Outlook.Application
+  Set NewMail = OL.CreateItem(olMailItem)
+    NewMail.Display '作成されたメールを表示するコード
+    NewMail.To = "example@gmail.com"
+    NewMail.CC = "example@gmail.com"
+    NewMail.Subject = "件名"
+    NewMail.BodyFormat = olFormatHTML 'ファイル形式
+    NewMail.Body = "本文" & vbLf & "改行後の本文"
+    NewMail.Attachments.Add ThisWorkbook.Path & "\添付ファイル.xlsm" 'このマクロがあるパスのファイルが添付される
+    NewMail.Save
+End Sub
