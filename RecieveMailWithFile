@@ -1,0 +1,19 @@
+Sub RecieveMailWithFile()
+
+    Dim OL, MyNamespace, MyInbox, MyFiles
+
+    Set OL = New Outlook.Application
+    
+    Set MyNamespace = OL.GetNamespace("MAPI")
+
+    Set MyInbox = MyNamespace.GetDefaultFolder(olFolderInbox)
+
+    Set MyFiles = MyInbox.Items(1).Attachments(1)
+
+    MyFiles.SaveAsFile ThisWorkbook.Path & "\保存先のフォルダ名（マクロが置いてあるパスにあるフォルダ）\" & MyFiles
+    
+    'Set MyFiles = MyInbox.Items(1).Attachments(2) '複数のファイルを保存したいときはAttachments内の引数の数を変えて加える
+
+    'MyFiles.SaveAsFile ThisWorkbook.Path & "\保存先のフォルダ名（マクロが置いてあるパスにあるフォルダ）\" & MyFiles　
+
+End Sub
