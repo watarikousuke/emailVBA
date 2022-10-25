@@ -8,12 +8,12 @@ Sub RecieveMailWithFiles()
 
     Set MyInbox = MyNamespace.GetDefaultFolder(olFolderInbox)
 
-    For i = 1 To MyInbox.Items.Count
+    For i = 1 To MyInbox.Items.Count　
     
         Set MyFiles = MyInbox.Items(i).Attachments(1)
     
         MyFiles.SaveAsFile ThisWorkbook.Path & "\保存先のフォルダ名（マクロが置いてあるパスにあるフォルダ）\" & MyInbox.Items(i).Subject & ".xlsx"
-        'このコードだと件名がファイル名として保存されるので、場合によって送信者などに書き換える方法もあり。
+        'このコードだと件名がファイル名として保存されるので、場合によって送信者などに書き換える方法もある。
 
     Next
 
